@@ -24,6 +24,17 @@ removeColumnButton.addEventListener('click', (ev) => {
 	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length - 1, table.rows.length);
 });
 
+let colorAllUncoloredButton = document.getElementById('colorUncolored');
+colorAllUncoloredButton.addEventListener('click', (ev) =>{
+	for (let i = 0; i < table.rows[0].cells.length; i++){
+		for (let j = 0; j < table.rows.length; j++){
+			if(table.rows[j].cells[i].style.background == defaultColor){
+				table.rows[j].cells[i].style.background = colors();
+			}
+		}
+	}
+});
+
 let clearColorButton = document.getElementById('clearColor');
 clearColorButton.addEventListener('click', (ev) => {
 	for (let x = 0; x < table.rows[0].cells.length; x++) {
