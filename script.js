@@ -2,13 +2,13 @@ let table = document.querySelector('table');
 
 let addRowsButton = document.getElementById('addRows');
 addRowsButton.addEventListener('click', (ev) => {
-	adjustTableDimensions(table.rows[0] == undefined ? 0 : table.rows[0].cells.length, table.rows.length + 1);
+	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length, table.rows.length + 1);
 	console.log('add row');
 });
 
 let removeRowsButton = document.getElementById('removeRows');
 removeRowsButton.addEventListener('click', (ev) => {
-	adjustTableDimensions(table.rows[0] == undefined ? 0 : table.rows[0].cells.length, table.rows.length - 1);
+	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length, table.rows.length - 1);
 	console.log('remove row');
 });
 
@@ -16,16 +16,20 @@ let addColumnButton = document.getElementById('addColumn');
 addColumnButton.addEventListener('click', (ev) => {
 	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length + 1, table.rows.length);
 });
+let removeColumnButton = document.getElementById('removeColumn');
+removeColumnButton.addEventListener('click', (ev) => {
+	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length - 1, table.rows.length);
+});
 function adjustTableDimensions(newX, newY) {
-	if (newY < 0) newY = 0;
-	if (newX < 0) newX = 0;
+	if (newY < 1) newY = 1;
+	if (newX < 1) newX = 1;
 	for (let y = 0; y < newY; y++) {
 		let row = table.rows[y];
 		if (row == undefined) {
-			table.insertRow();
+			row = table.insertRow();
 		}
 		populateRow(y, newX);
-		while (newX < row.cells.length) row.deleteCell();
+		while (newX < row.cells.length) row.deleteCell(-1);
 	}
 	while (newY < table.rows.length) table.deleteRow(-1);
 }
