@@ -12,27 +12,28 @@
 			<button id="addColumn">Add column</button>
 			<button id="removeColumn">Remove column</button>
 			<br />
-			<button onclick="dropFunction()" id="colors">Choose a color:</button>
-			<form>
-				<label>Red</label>
-				<br />
-				<input type="range" min="0" max="255" class="slider" id="red" name="red" value="50"/>
-				<br />
-				<label>Green</label>
-				<br />
-				<input type="range" min="0" max="255" class="slider" id="green" name="green" value="50"/>
-				<br />
-				<label>Blue</label>
-				<br />
-				<input type="range" min="0" max="255" class="slider" id="blue" name="blue" value="50"/>
-			</form>
+            <div>
+                <button onclick="dropFunction()" id="colors" class="dropbtn">Choose a color:</button>
+                <div id="dropColors" class="dropdown-content">
+                    <form>
+                        <label>Red</label>
+                        <br />
+                        <input type="range" min="0" max="255" class="slider" id="red" name="red" value="50" />
+                        <br />
+                        <label>Green</label>
+                        <br />
+                        <input type="range" min="0" max="255" class="slider" id="green" name="green" value="50" />
+                        <br />
+                        <label>Blue</label>
+                        <br />
+                        <input type="range" min="0" max="255" class="slider" id="blue" name="blue" value="50" />
+                    </form>
+                </div>
+            </div>
 			<br />
 
-			<div style="height: 20vh; margin: 0px 500px 0px 500px; background-color: rgb(0, 0, 0)" id="square">
-
-			</div>
 		</div>
-		<table>
+		<table id="table">
 			<tr>
 				<td></td>
 				<td></td>
