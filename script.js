@@ -1,4 +1,5 @@
 let table = document.querySelector('table');
+const defaultColor = '#FFFFFF';
 
 let addRowsButton = document.getElementById('addRows');
 addRowsButton.addEventListener('click', (ev) => {
@@ -16,9 +17,19 @@ let addColumnButton = document.getElementById('addColumn');
 addColumnButton.addEventListener('click', (ev) => {
 	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length + 1, table.rows.length);
 });
+
 let removeColumnButton = document.getElementById('removeColumn');
 removeColumnButton.addEventListener('click', (ev) => {
 	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length - 1, table.rows.length);
+});
+
+let clearColorButton = document.getElementById('clearColor');
+clearColorButton.addEventListener('click', (ev) => {
+	for (let x = 0; x < table.rows[0].cells.length; x++) {
+		for (let y = 0; y < table.rows.length; y++) {
+			table.rows[y].cells[x].style.background = defaultColor;
+		}
+	}
 });
 function adjustTableDimensions(newX, newY) {
 	if (newY < 1) newY = 1;
