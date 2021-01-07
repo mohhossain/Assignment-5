@@ -71,7 +71,7 @@ setInterval(() => {
 		return blue;
 	}*/
 
-	document.getElementById('square').style.background = 'rgb(' + red + ',' + green + ',' + blue + ')';
+	document.getElementById("table").style.background = "rgb(" + red + "," + green + "," + blue + ")"
 	/*document.getElementsByClassName("inside-container")[0].style.background = "rgb(" + r + "," + g + "," + b + ")"
 	document.getElementById("result").innerText = "rgb(" + r + "," + g + "," + b + ")"
 	if (r > 130 || g > 130 || b > 130) {
@@ -79,4 +79,8 @@ setInterval(() => {
 	} else {
 		document.getElementById("container").style.color = "white"
 	}*/
-}, 500);
+}, 100)
+
+function dropFunction() {
+	document.getElementById("dropColors").classList.toggle("show");
+}
