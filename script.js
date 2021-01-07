@@ -31,6 +31,7 @@ clearColorButton.addEventListener('click', (ev) => {
 		}
 	}
 });
+
 function adjustTableDimensions(newX, newY) {
 	if (newY < 1) newY = 1;
 	if (newX < 1) newX = 1;
@@ -44,12 +45,14 @@ function adjustTableDimensions(newX, newY) {
 	}
 	while (newY < table.rows.length) table.deleteRow(-1);
 }
+
 function populateRow(index, length) {
 	for (let i = table.rows[index].cells.length; i < length; i++) {
 		let cell = table.rows[index].insertCell(i);
-		//Add click listner
+		cell.addEventListener('click', changeCellColor(cell));
 	}
 }
+
 setInterval(() => {
 	/*let redButton = document.getElementById("red")
 	let greenButton = document.getElementById("green")
@@ -83,4 +86,9 @@ setInterval(() => {
 
 function dropFunction() {
 	document.getElementById("dropColors").classList.toggle("show");
+}
+
+function changeCellColor(cell){
+
+	cell.style.backgroundColor = "#A9A9A9";
 }
