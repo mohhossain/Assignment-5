@@ -29,18 +29,12 @@ removeColumnButton.addEventListener('click', (ev) => {
 
 let colorAllUncoloredButton = document.getElementById('colorUncolored');
 colorAllUncoloredButton.addEventListener('click', (ev) => {
-	for (let i = 0; i < table.rows[0].cells.length; i++) {
-		for (let j = 0; j < table.rows.length; j++) {
-			console.log(
-				`Cell color ${table.rows[j].cells[i].style.backgroundColor} Default color ${defaultColor} comparison ${
-					table.rows[j].cells[i].style.backgroundColor == defaultColor
-				}`
-			);
-			if (table.rows[j].cells[i].style.backgroundColor == defaultColor) {
-				table.rows[j].cells[i].style.backgroundColor = colors();
-			}
-		}
-	}
+	fillTable(false);
+});
+
+let fillAllButton = document.getElementById('fillAll');
+fillAllButton.addEventListener('click', (ev) => {
+	fillTable(true);
 });
 
 let clearColorButton = document.getElementById('clearColor');
@@ -51,6 +45,16 @@ clearColorButton.addEventListener('click', (ev) => {
 		}
 	}
 });
+
+function fillTable(fillColoredTiles) {
+	for (let i = 0; i < table.rows[0].cells.length; i++) {
+		for (let j = 0; j < table.rows.length; j++) {
+			if (table.rows[j].cells[i].style.backgroundColor == defaultColor || fillColoredTiles) {
+				table.rows[j].cells[i].style.backgroundColor = colors();
+			}
+		}
+	}
+}
 
 function adjustTableDimensions(newX, newY) {
 	if (newY < 1) newY = 1;
