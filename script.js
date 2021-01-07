@@ -3,7 +3,7 @@ let mousedown = false;
 document.body.addEventListener('mousedown', (ev) => (mousedown = true));
 document.body.addEventListener('mouseup', (ev) => (mousedown = false));
 adjustTableDimensions(3, 3);
-const defaultColor = '#FFFFFF';
+const defaultColor = 'rgb(255, 255, 255)';
 
 let addRowsButton = document.getElementById('addRows');
 addRowsButton.addEventListener('click', (ev) => {
@@ -28,11 +28,16 @@ removeColumnButton.addEventListener('click', (ev) => {
 });
 
 let colorAllUncoloredButton = document.getElementById('colorUncolored');
-colorAllUncoloredButton.addEventListener('click', (ev) =>{
-	for (let i = 0; i < table.rows[0].cells.length; i++){
-		for (let j = 0; j < table.rows.length; j++){
-			if(table.rows[j].cells[i].style.background == defaultColor){
-				table.rows[j].cells[i].style.background = colors();
+colorAllUncoloredButton.addEventListener('click', (ev) => {
+	for (let i = 0; i < table.rows[0].cells.length; i++) {
+		for (let j = 0; j < table.rows.length; j++) {
+			console.log(
+				`Cell color ${table.rows[j].cells[i].style.backgroundColor} Default color ${defaultColor} comparison ${
+					table.rows[j].cells[i].style.backgroundColor == defaultColor
+				}`
+			);
+			if (table.rows[j].cells[i].style.backgroundColor == defaultColor) {
+				table.rows[j].cells[i].style.backgroundColor = colors();
 			}
 		}
 	}
