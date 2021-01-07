@@ -1,12 +1,6 @@
-tr {
-	height:30px;
-	width:30px;
-	border-width: thick;
-}
-
-td {
-	height: 30px;
-	width: 30px;
-	border: 1px black;
-	border-width: thick;
+table, th, td{
+		border: 1px solid black;
+		border-width: thin;
+		height: 100px;
+		width: 600px;
 }
