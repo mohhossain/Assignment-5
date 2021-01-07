@@ -1,4 +1,7 @@
 let table = document.querySelector('table');
+let mousedown = false;
+document.body.addEventListener('mousedown', (ev) => (mousedown = true));
+document.body.addEventListener('mouseup', (ev) => (mousedown = false));
 adjustTableDimensions(3, 3);
 const defaultColor = '#FFFFFF';
 
@@ -50,10 +53,10 @@ function adjustTableDimensions(newX, newY) {
 function populateRow(index, length) {
 	for (let i = table.rows[index].cells.length; i < length; i++) {
 		let cell = table.rows[index].insertCell(i);
-		cell.addEventListener('mousedown', (ev) => {
-			let _ = cell;
-			changeCellColor(_);
+		cell.addEventListener('mouseover', (ev) => {
+			if (mousedown) changeCellColor(cell);
 		});
+		cell.addEventListener('mousedown', (ev) => changeCellColor(cell));
 	}
 }
 
