@@ -1,7 +1,8 @@
-tr{
-    size:50px;
+tr {
+	size: 50px;
 }
 
-td{
-    size: 50px;
+td {
+	size: 50px;
+	border: 1px black;
 }
