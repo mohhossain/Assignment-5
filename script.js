@@ -1,4 +1,5 @@
 let table = document.querySelector('table');
+adjustTableDimensions(3, 3);
 const defaultColor = '#FFFFFF';
 
 let addRowsButton = document.getElementById('addRows');
@@ -49,26 +50,29 @@ function adjustTableDimensions(newX, newY) {
 function populateRow(index, length) {
 	for (let i = table.rows[index].cells.length; i < length; i++) {
 		let cell = table.rows[index].insertCell(i);
-		cell.addEventListener('click', changeCellColor(cell));
+		cell.addEventListener('mousedown', (ev) => {
+			let _ = cell;
+			changeCellColor(_);
+		});
 	}
 }
 
-function colors(){
+function colors() {
 	let red = document.getElementById('red').value;
 	let green = document.getElementById('green').value;
 	let blue = document.getElementById('blue').value;
-	return "rgb(" + red + "," + green + "," + blue + ")";
+	return 'rgb(' + red + ',' + green + ',' + blue + ')';
 }
 
-setInterval(() => {
-	document.getElementById("table").style.background = colors()
-}, 100)
+// setInterval(() => {
+// 	document.getElementById('table').style.background = colors();
+// }, 100);
 
 function dropFunction() {
-	document.getElementById("dropColors").classList.toggle("show");
+	document.getElementById('dropColors').classList.toggle('show');
 }
 
-function changeCellColor(cell){
-
-	cell.style.backgroundColor = "#A9A9A9";
+function changeCellColor(cell) {
+	console.log(cell);
+	cell.style.backgroundColor = colors();
 }

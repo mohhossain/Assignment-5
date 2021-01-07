@@ -13,44 +13,27 @@
 			<button id="removeColumn">Remove column</button>
 			<button id="clearColor">Clear</button>
 			<br />
-            <div>
-                <button onclick="dropFunction()" id="colors" class="dropbtn">Choose a color:</button>
-                <div id="dropColors" class="dropdown-content">
-                    <form>
-                        <label>Red</label>
-                        <br />
-                        <input type="range" min="0" max="255" class="slider" id="red" name="red" value="50" />
-                        <br />
-                        <label>Green</label>
-                        <br />
-                        <input type="range" min="0" max="255" class="slider" id="green" name="green" value="50" />
-                        <br />
-                        <label>Blue</label>
-                        <br />
-                        <input type="range" min="0" max="255" class="slider" id="blue" name="blue" value="50" />
-                    </form>
-                </div>
-            </div>
+			<div>
+				<button onclick="dropFunction()" id="colors" class="dropbtn">Choose a color:</button>
+				<div id="dropColors" class="dropdown-content">
+					<form>
+						<label>Red</label>
+						<br />
+						<input type="range" min="0" max="255" class="slider" id="red" name="red" value="50" />
+						<br />
+						<label>Green</label>
+						<br />
+						<input type="range" min="0" max="255" class="slider" id="green" name="green" value="50" />
+						<br />
+						<label>Blue</label>
+						<br />
+						<input type="range" min="0" max="255" class="slider" id="blue" name="blue" value="50" />
+					</form>
+				</div>
+			</div>
 			<br />
-
 		</div>
-		<table id="table">
-			<tr>
-				<td id = "cell" onclick="changeCellColor()"></td>
-				<td id = "cell" onclick="changeCellColor()"></td>
-				<td id = "cell" onclick="changeCellColor()"></td>
-			</tr>
-			<tr>
-				<td id = "cell" onclick="changeCellColor()"></td>
-				<td id = "cell" onclick="changeCellColor()"></td>
-				<td id = "cell" onclick="changeCellColor()"></td>
-			</tr>
-			<tr>
-				<td id = "cell" onclick="changeCellColor()"></td>
-				<td id = "cell" onclick="changeCellColor()"></td>
-				<td id = "cell" onclick="changeCellColor()"></td>
-			</tr>
-		</table>
+		<table id="table"></table>
 		<script src="script.js"></script>
 	</body>
 </html>
