@@ -12,6 +12,10 @@ removeRowsButton.addEventListener('click', (ev) => {
 	console.log('remove row');
 });
 
+let addColumnButton = document.getElementById('addColumn');
+addColumnButton.addEventListener('click', (ev) => {
+	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length + 1, table.rows.length);
+});
 function adjustTableDimensions(newX, newY) {
 	if (newY < 0) newY = 0;
 	if (newX < 0) newX = 0;
@@ -21,6 +25,7 @@ function adjustTableDimensions(newX, newY) {
 			table.insertRow();
 		}
 		populateRow(y, newX);
+		while (newX < row.cells.length) row.deleteCell();
 	}
 	while (newY < table.rows.length) table.deleteRow(-1);
 }
@@ -35,9 +40,9 @@ setInterval(() => {
 	let greenButton = document.getElementById("green")
 	let blueButton = document.getElementById("blue")
    */
-	let red = document.getElementById("red").value
-	let green = document.getElementById("green").value
-	let blue = document.getElementById("blue").value
+	let red = document.getElementById('red').value;
+	let green = document.getElementById('green').value;
+	let blue = document.getElementById('blue').value;
 	/*redButton.oninput = function () {
 		red = parseInt(this.value);
 		return red;
@@ -51,7 +56,7 @@ setInterval(() => {
 		return blue;
 	}*/
 
-	document.getElementById("square").style.background = "rgb(" + red + "," + green + "," + blue + ")"
+	document.getElementById('square').style.background = 'rgb(' + red + ',' + green + ',' + blue + ')';
 	/*document.getElementsByClassName("inside-container")[0].style.background = "rgb(" + r + "," + g + "," + b + ")"
 	document.getElementById("result").innerText = "rgb(" + r + "," + g + "," + b + ")"
 	if (r > 130 || g > 130 || b > 130) {
@@ -59,4 +64,4 @@ setInterval(() => {
 	} else {
 		document.getElementById("container").style.color = "white"
 	}*/
-}, 500)
+}, 500);
