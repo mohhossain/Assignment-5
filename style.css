@@ -1,8 +1,10 @@
 tr {
-	size: 50px;
+	height:30px;
+	width:30px;
 }
 
 td {
-	size: 50px;
+	height: 30px;
+	width: 30px;
 	border: 1px black;
 }
