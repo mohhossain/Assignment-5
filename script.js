@@ -8,13 +8,13 @@ const defaultColor = 'rgb(255, 255, 255)';
 let addRowsButton = document.getElementById('addRows');
 addRowsButton.addEventListener('click', (ev) => {
 	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length, table.rows.length + 1);
-	console.log('add row');
+	//console.log('add row');
 });
 
 let removeRowsButton = document.getElementById('removeRows');
 removeRowsButton.addEventListener('click', (ev) => {
 	adjustTableDimensions(table.rows[0] == undefined ? 1 : table.rows[0].cells.length, table.rows.length - 1);
-	console.log('remove row');
+	//console.log('remove row');
 });
 
 let addColumnButton = document.getElementById('addColumn');
@@ -96,6 +96,5 @@ function dropFunction() {
 }
 
 function changeCellColor(cell) {
-	console.log(cell);
 	cell.style.backgroundColor = colors();
 }
