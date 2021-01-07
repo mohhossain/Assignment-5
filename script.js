@@ -1,8 +1,15 @@
-let addRowsButton = document.getElementById('addRows');
 let table = document.querySelector('table');
+
+let addRowsButton = document.getElementById('addRows');
 addRowsButton.addEventListener('click', (ev) => {
 	adjustTableDimensions(table.rows[0].cells.length, table.rows.length + 1);
-	console.log('button pressed');
+	console.log('add row');
+});
+
+let removeRowsButtons = document.getElementById('removeRows');
+removeRowsButtons.addEventListener('click', (ev) => {
+	adjustTableDimensions(table.rows[0].cells.length, table.rows.length - 1);
+	console.log('remove row');
 });
 function adjustTableDimensions(newX, newY) {
 	let currentX = table.rows[0].length;
@@ -13,17 +20,7 @@ function adjustTableDimensions(newX, newY) {
 		}
 		populateRow(y, newX);
 	}
-	// if (y < table.rows.length) {
-	// 	while (y < table.rows.length) {
-	// 		table.deleteRow(table.rows.length - 1);
-	// 		y++;
-	// 	}
-	// } else {
-	// 	while (y > table.rows.length) {
-	// 		let row = table.insertRow();
-	// 		populateRow(y);
-	// 	}
-	// }
+	while (newY < table.rows.length) table.deleteRow(-1);
 }
 function populateRow(index, length) {
 	for (let i = table.rows[index].cells.length; i < length; i++) {
